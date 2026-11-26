@@ -151,7 +151,7 @@ function TreeSvg({
                 fontFamily="JetBrains Mono, monospace"
                 textAnchor="middle"
               >
-                [{node.start}â€“{node.end}]
+                [{node.start}-{node.end}]
               </text>
               <text
                 x="0"
