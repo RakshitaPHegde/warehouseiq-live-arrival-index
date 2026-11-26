@@ -9,6 +9,7 @@ WarehouseIQ is a real-time warehouse package tracking dashboard powered by an in
 
 
 
+
 - **AVL Tree Interval Engine (`src/engine/avlIntervalTree.js`)**:
   - Incremental `O(log k)` insertion, predecessor/successor lookup, boundary extension, and bridge merging (`LL`, `RR`, `LR`, `RL` rotations).
   - Duplicate suppression without modifying existing intervals.
@@ -32,6 +33,7 @@ WarehouseIQ is a real-time warehouse package tracking dashboard powered by an in
    ```bash
    npm install
    ```
+   
 4. Run unit tests:
    ```bash
    npm test
