@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react';
+﻿import React, { useState, useMemo } from 'react';
 import {
   Network,
   Play,
@@ -151,7 +151,7 @@ function TreeSvg({
                 fontFamily="JetBrains Mono, monospace"
                 textAnchor="middle"
               >
-                [{node.start}–{node.end}]
+                [{node.start}â€“{node.end}]
               </text>
               <text
                 x="0"
@@ -358,7 +358,7 @@ export default function AlgorithmVizView({
               <div className="grid grid-cols-1 gap-3 md:grid-cols-2">
                 <div>
                   <div className="mb-1.5 text-xs font-semibold text-slate-600">
-                    Before (+{formatNumber(lastTrace.id)}) — Height {lastTrace.beforeHeight}
+                    Before (+{formatNumber(lastTrace.id)}) â€” Height {lastTrace.beforeHeight}
                   </div>
                   <TreeSvg
                     treeData={lastTrace.beforeTree}
@@ -368,7 +368,7 @@ export default function AlgorithmVizView({
                 </div>
                 <div>
                   <div className="mb-1.5 text-xs font-semibold text-teal-700">
-                    After ({lastTrace.actionLabel}) — Height {lastTrace.afterHeight}
+                    After ({lastTrace.actionLabel}) â€” Height {lastTrace.afterHeight}
                   </div>
                   <TreeSvg
                     treeData={lastTrace.afterTree}
@@ -443,7 +443,7 @@ export default function AlgorithmVizView({
                 ) : (
                   <span className="font-mono font-bold text-amber-300">
                     {lastTrace.rotations
-                      .map((r) => `${r.type} (pivot ${r.pivotStart} → root ${r.newRootStart})`)
+                      .map((r) => `${r.type} (pivot ${r.pivotStart} â†’ root ${r.newRootStart})`)
                       .join('; ')}
                   </span>
                 )}
@@ -492,7 +492,7 @@ export default function AlgorithmVizView({
             {
               title: '2. Isolated New',
               rule: 'x > pred.end+1 & x < succ.start-1',
-              effect: 'Inserts new node [x–x] & runs LL/RR/LR/RL rebalance.',
+              effect: 'Inserts new node [xâ€“x] & runs LL/RR/LR/RL rebalance.',
               color: 'border-cyan-200 bg-cyan-50/60 text-cyan-900',
             },
             {
@@ -569,7 +569,7 @@ export default function AlgorithmVizView({
             <FlaskConical className="h-4 w-4 text-teal-600" />
             <div>
               <h2 className="text-sm font-bold text-slate-900">
-                Built-In Verification Suite (Test Cases 1–6)
+                Built-In Verification Suite (Test Cases 1â€“6)
               </h2>
               <p className="text-xs text-slate-500">
                 Executes each test case directly against <span className="font-mono">IntervalAVLTree</span> and verifies all AVL invariants.
@@ -640,7 +640,7 @@ export default function AlgorithmVizView({
                   <div>
                     <span className="text-slate-400">Arrivals: </span>
                     {tc.arrivals.join(', ')}
-                    {tc.followUp.length > 0 && ` → then ${tc.followUp.join(', ')}`}
+                    {tc.followUp.length > 0 && ` â†’ then ${tc.followUp.join(', ')}`}
                   </div>
                   <div>
                     <span className="text-slate-400">Expected: </span>
@@ -650,7 +650,7 @@ export default function AlgorithmVizView({
                     <div className="border-t border-slate-100 pt-1 text-teal-800">
                       <span className="text-slate-400">Actual:   </span>
                       <span className="font-bold">{res.actualText}</span>
-                      {' · '}Dup: {res.actualDuplicates} · h={res.treeHeight}
+                      {' Â· '}Dup: {res.actualDuplicates} Â· h={res.treeHeight}
                     </div>
                   )}
                 </div>
@@ -664,16 +664,6 @@ export default function AlgorithmVizView({
                     <Play className="h-3 w-3 text-cyan-300" />
                     Run Test
                   </button>
-                  <button
-                    type="button"
-                    onClick={() =>
-                      onLoadSequence([...tc.arrivals, ...tc.followUp], tc.name)
-                    }
-                    className="inline-flex items-center gap-1 rounded-lg border border-slate-300 bg-white px-3 py-1.5 text-xs font-semibold text-slate-700 hover:bg-slate-100"
-                  >
-                    Load into Tree
-                    <ArrowRight className="h-3 w-3" />
-                  </button>
                 </div>
               </div>
             );
@@ -683,3 +673,4 @@ export default function AlgorithmVizView({
     </div>
   );
 }
+
